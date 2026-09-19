@@ -24,7 +24,7 @@ async function postBugData(){
     const bugTitle = document.getElementById("bug-name").value;
     const bugDescription = document.getElementById("bug-description").value;
     const prior = prioritySelect.value;
-    const url = "/api/bugs";
+    const url = "/api/bugs/create";
     const bugobj = {
         title : bugTitle,
         description : bugDescription,
