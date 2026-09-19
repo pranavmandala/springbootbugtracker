@@ -30,6 +30,7 @@ public class BugService {
         currbug.setDescription(bug.getDescription());
         currbug.setStatus(bug.getStatus());
         currbug.setPriority(bug.getPriority());
+        bugRepository.save(currbug);
         return currbug;
     }
 

@@ -23,24 +23,23 @@ public class Bug {
     @Column(length = 50, nullable = false)
     private String priority;
     
-    @Column(
-        name = "created_at", nullable = false, columnDefinition = "TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP"
-    )
+    @Column(name = "created_at", nullable = false)
     private OffsetDateTime createdAt;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+/*     @ManyToOne
+    @JoinColumn(name = "user_id", nullable = true)
+    private User user; */
     
     public Bug() {
 
     }
 
-    public Bug(String title, String description, String status, String priority) {
+    public Bug(String title, String description, String priority) {
         this.setTitle(title);
         this.setDescription(description);
-        this.setStatus(status);
+        this.setStatus("open");
         this.setPriority(priority);
+        this.createdAt = OffsetDateTime.now();
     }
 
     public void setTitle(String title){
@@ -59,9 +58,9 @@ public class Bug {
         this.priority = priority;
     }
 
-    public void setUser(User user){
+/*     public void setUser(User user){
         this.user = user;
-    }
+    } */
 
     public String getTitle(){
         return title;
@@ -83,7 +82,7 @@ public class Bug {
         return createdAt;
     }
 
-    public User getUser(){
+/*     public User getUser(){
         return user;
-    }
+    } */
 }

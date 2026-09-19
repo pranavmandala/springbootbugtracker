@@ -32,11 +32,12 @@ public class BugController {
 
     @DeleteMapping("/api/bugs/{bugId}")
     public ResponseEntity<Void> deleteBug(@PathVariable Long bugId){
+        bugService.deleteBugFromData(bugId);
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/api/bugs/{bugId}")
-    public Bug updateBug(@PathVariable Long bugId, Bug bug){
+    public Bug updateBug(@PathVariable Long bugId, @RequestBody Bug bug){
         return bugService.updateBugInData(bugId, bug);
     }
 }
